@@ -1,2 +1,2 @@
 # Mips-Multi-Cycle
-Multi-cycle MIPS processor implementation in VHDL.
+Will work soon on the pipeline version of MIPS. 
