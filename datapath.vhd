@@ -254,7 +254,7 @@ begin
 	 
 	 
 	 
-	 -- Fouth cycle
+	 -- Fourth cycle
 		pcjump <= pc(31 downto 28) & instr(25 downto 0) & "00";
 
 		pcnextmux:  mux3 generic map(32) port map(
