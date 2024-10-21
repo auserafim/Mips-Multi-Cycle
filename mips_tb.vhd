@@ -23,7 +23,6 @@ architecture test of mips_tb is
 
 begin
 
-  -- Instantiate the MIPS processor (DUT)
   dut: mips port map(
     clk => clk,
     reset => reset,
@@ -33,7 +32,7 @@ begin
     B => B
   );
 
-  -- Clock generation process (10 ns period)
+
   clk_process: process
   begin
     clk <= '1';
@@ -42,31 +41,31 @@ begin
     wait for 5 ns;
   end process;
 
-  -- Reset the processor in the first two cycles
+      -- reset for the first two cycles 
   reset_process: process
   begin
     reset <= '1';
-    wait for 1 ns; -- Hold reset for two cycles (20 ns) + 2 ns buffer
+    wait for 1 ns; 
     reset <= '0';
-    wait; -- Wait indefinitely
+    wait; 
   end process;
 
-  -- Check if the value 7 was written to address 84
+  -- check if the value 7 was written to address 84
   check_process: process (clk)
     variable adr_int: integer;
     variable B_int: integer;
   begin
     if falling_edge(clk) then
       if memwrite = '1' then
-        -- Convert adr and B to integer
+        -- convert adr and B to integer
         adr_int := to_integer(unsigned(adr));
         B_int := to_integer(signed(B));
         
-        -- Check if the expected conditions are met
+        -- check for success
         if (adr_int = 84 and B_int = 7) then 
-          report "Success: Data 7 written to address 84" severity note;
+          report "[success]" severity note;
         elsif (adr_int /= 84) then 
-          report "Simulation failed: Incorrect address written" severity error;
+          report "[simulation failed]" severity error;
         end if;
       end if;
     end if;
