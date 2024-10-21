@@ -212,7 +212,7 @@ begin
 	 );
 	 
 	 
-	 -- THIRD CLYCLE
+	 -- THRID CLYCLE
 			
 	  srcAmux: mux2 generic map(32) port map(
 	             pc,
