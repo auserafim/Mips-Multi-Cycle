@@ -9,7 +9,6 @@ end;
 
 architecture behave of aludec is
 begin
-  --veja tabelas 7.1, 7.2 e 7.3 do livro para entender os sinais gerados
   process(all) begin
     case aluop is
       when "00" => alucontrol <= "010"; -- add (for lw/sw/addi)
