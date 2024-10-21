@@ -17,7 +17,6 @@ architecture test of mips_tb is
     );
   end component;
 
-  -- Testbench signals
   signal B, adr, readdata: STD_LOGIC_VECTOR(31 downto 0);
   signal clk, reset, memwrite: STD_LOGIC;
 
