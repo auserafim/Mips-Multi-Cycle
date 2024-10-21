@@ -85,7 +85,6 @@ end component;
 
  
 begin
-  -- Instancie a unidade de controle (controller) conectando os sinais de entrada  de forma apropriada
   
   	INPUT_CONTROLLER: controller port map(
 			  op         => instr(31 downto 26),
