@@ -29,7 +29,7 @@ architecture synth of maindec is
   signal state, nextstate: statetypeSigs;
 
 begin
-  -- State register process
+	-- state transition 
   process(clk, reset)
   begin 
     if reset = '1' then
@@ -39,7 +39,7 @@ begin
     end if;
   end process;
 
-  -- Next state logic process
+  -- next state logic
   process(state, op)
   begin
     case state is
@@ -104,11 +104,10 @@ begin
     end case;
   end process;
 
-  -- Output logic process
+  		--output logic
   process(state)
   begin
-    -- all signals assigned to zero at the beginning of the process
-	 -- if select signal is not asserted they are don’t cares. Otherwise,  they are zero if – they are register enable signals 
+	 -- if select signals are not asserted they are "don’t care". Otherwise,  they are zero // "register enable signals"
     memtoreg <= '0';
     regdst   <= '0';
     iord     <= '0';
@@ -124,7 +123,7 @@ begin
 	 
 	
 
-    -- Set control signals based on state
+    	-- control based on their current state
     case state is
       when S0 => -- fetch
         iord      <= '0';
