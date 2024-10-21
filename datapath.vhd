@@ -124,9 +124,9 @@ end component;
 	 
 begin
     
-	 -- FIRST CYCLE LOGIC
-	 -- pc logic 
-    pcreg: reg generic map(32) port map(
+	 -- First cycle
+    pcreg: reg generic map(32) port map(	 -- pc logic 
+
 						 clk, 
 						 reset, 
 						 PCEn,
@@ -155,7 +155,7 @@ begin
 	 
 
 
-	 -- Second cylce logic 
+	 -- Second cycle  
 	 
     immsh: sl2 port map( 
 					 signimm, 
@@ -212,7 +212,7 @@ begin
 	 );
 	 
 	 
-	 -- THRID CLYCLE
+	 -- Third cycle
 			
 	  srcAmux: mux2 generic map(32) port map(
 	             pc,
